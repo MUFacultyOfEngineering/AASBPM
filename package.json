@@ -1,0 +1,51 @@
+{
+  "name": "camunda-modeler-plugin-aas-web-service-discoverer",
+  "version": "1.0.0",
+  "description": "Camunda Modeler plugin - AAS web service discoverer",
+  "main": "index.js",
+  "scripts": {
+    "all": "run-s build test",
+    "build": "webpack",
+    "dev": "webpack -w",
+    "lint": "eslint .",
+    "test": "run-s lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wsteven24/camunda-modeler-plugin-aas-web-service-discoverer.git"
+  },
+  "keywords": [
+    "camunda",
+    "modeler",
+    "plugin"
+  ],
+  "author": "William Ochoa Agurto",
+  "license": "MIT",
+  "devDependencies": {
+    "camunda-modeler-plugin-helpers": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "classnames": "^2.3.1",
+    "eslint": "^7.31.0",
+    "eslint-plugin-bpmn-io": "^0.13.0",
+    "react-svg-loader": "^3.0.3",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2",
+    "browserify": "^14.1.0"
+  },
+  "dependencies": {
+    "bpmn-js": "^9.0.3",
+    "diagram-js": "^3.0.0",
+    "inherits": "^2.0.1",
+    "min-dash": "^3.0.0",
+    "tiny-svg": "^2.0.0",
+    "react-string-format": "^1.0.0"
+  },
+  "files": [
+    "dist",
+    "style/style.css",
+    "index.js"
+  ]
+}
