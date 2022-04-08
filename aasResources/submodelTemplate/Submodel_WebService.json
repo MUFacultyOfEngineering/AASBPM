@@ -1,0 +1,205 @@
+{
+  "semanticId": {
+    "keys": []
+  },
+  "qualifiers": null,
+  "hasDataSpecification": null,
+  "identification": {
+    "idType": "IRI",
+    "id": "https://example.com/ids/sm/7471_5180_3022_3423"
+  },
+  "administration": null,
+  "idShort": "WebService",
+  "category": null,
+  "modelType": {
+    "name": "Submodel"
+  },
+  "kind": "Template",
+  "submodelElements": [
+    {
+      "value": "",
+      "valueId": null,
+      "semanticId": {
+        "keys": []
+      },
+      "constraints": null,
+      "hasDataSpecification": null,
+      "idShort": "URL",
+      "category": "PARAMETER",
+      "modelType": {
+        "name": "Property"
+      },
+      "valueType": {
+        "dataObjectType": {
+          "name": ""
+        }
+      },
+      "kind": "Template",
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "The service endpoint. Make sure it is reachable within the network."
+        }
+      ]
+    },
+    {
+      "value": "",
+      "valueId": null,
+      "semanticId": {
+        "keys": []
+      },
+      "constraints": null,
+      "hasDataSpecification": null,
+      "idShort": "Method",
+      "category": null,
+      "modelType": {
+        "name": "Property"
+      },
+      "valueType": {
+        "dataObjectType": {
+          "name": ""
+        }
+      },
+      "kind": "Template",
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "The type of method (GET, POST, PUT...)"
+        }
+      ]
+    },
+    {
+      "value": "",
+      "valueId": null,
+      "semanticId": {
+        "keys": []
+      },
+      "constraints": null,
+      "hasDataSpecification": null,
+      "idShort": "Name",
+      "category": null,
+      "modelType": {
+        "name": "Property"
+      },
+      "valueType": {
+        "dataObjectType": {
+          "name": ""
+        }
+      },
+      "kind": "Template",
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "The name of the service"
+        }
+      ]
+    },
+    {
+      "ordered": false,
+      "allowDuplicates": false,
+      "semanticId": {
+        "keys": []
+      },
+      "constraints": null,
+      "hasDataSpecification": null,
+      "idShort": "Response",
+      "category": null,
+      "modelType": {
+        "name": "SubmodelElementCollection"
+      },
+      "value": [
+        {
+          "value": "",
+          "valueId": null,
+          "semanticId": {
+            "keys": []
+          },
+          "constraints": null,
+          "hasDataSpecification": null,
+          "idShort": "Code",
+          "category": null,
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Template",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "Responde code (200, 201, etc)"
+            }
+          ]
+        },
+        {
+          "value": "",
+          "valueId": null,
+          "semanticId": {
+            "keys": []
+          },
+          "constraints": null,
+          "hasDataSpecification": null,
+          "idShort": "MediaType",
+          "category": null,
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Template",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "Media type (e.g. application/json)"
+            }
+          ]
+        },
+        {
+          "value": "",
+          "valueId": null,
+          "semanticId": {
+            "keys": []
+          },
+          "constraints": null,
+          "hasDataSpecification": null,
+          "idShort": "ExampleValue",
+          "category": null,
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Template",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "An example of response body"
+            }
+          ]
+        }
+      ],
+      "kind": "Template",
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "Service response"
+        }
+      ]
+    }
+  ],
+  "descriptions": [
+    {
+      "language": "en",
+      "text": "A submodel template for mapping device services"
+    }
+  ]
+}

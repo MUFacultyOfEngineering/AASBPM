@@ -1,0 +1,520 @@
+{
+  "$type": "Options",
+  "Records": [
+    {
+      "$type": "Record",
+      "FormTag": "TBD",
+      "FormTitle": "TBD/WebServices",
+      "FormSubmodel": {
+        "$type": "FormSubmodel",
+        "FormTitle": "Submodel",
+        "FormInfo": "",
+        "FormEditIdShort": false,
+        "FormEditDescription": false,
+        "PresetIdShort": "WebServices",
+        "PresetCategory": "CONSTANT",
+        "SubmodelElements": [
+          {
+            "$type": "FormSubmodelElementCollection",
+            "FormTitle": "WebService",
+            "FormEditIdShort": false,
+            "FormEditDescription": false,
+            "PresetIdShort": "WebService{0:00}",
+            "PresetCategory": "PARAMETER",
+            "Multiplicity": "OneToMany",
+            "IsReadOnly": false,
+            "value": [
+              {
+                "$type": "FormProperty",
+                "FormTitle": "URL",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "URL",
+                "PresetCategory": "PARAMETER",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/0241_0190_3022_9102",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  ""
+                ],
+                "presetValue": ""
+              },
+              {
+                "$type": "FormProperty",
+                "FormTitle": "Name",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "Name",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/7052_0190_3022_2921",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  ""
+                ],
+                "presetValue": ""
+              },
+              {
+                "$type": "FormProperty",
+                "FormTitle": "Method",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "Method",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/1561_0190_3022_7753",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  ""
+                ],
+                "presetValue": ""
+              },
+              {
+                "$type": "FormSubmodelElementCollection",
+                "FormTitle": "Response",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "Response{0:00}",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/2262_0190_3022_6903",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "OneToMany",
+                "IsReadOnly": false,
+                "value": [
+                  {
+                    "$type": "FormProperty",
+                    "FormTitle": "Code",
+                    "FormEditIdShort": false,
+                    "FormEditDescription": false,
+                    "PresetIdShort": "Code",
+                    "KeySemanticId": {
+                      "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                      "type": "ConceptDescription",
+                      "local": true,
+                      "value": "https://example.com/ids/cd/9562_0190_3022_6374",
+                      "index": 0,
+                      "idType": "IRI"
+                    },
+                    "Multiplicity": "One",
+                    "IsReadOnly": false,
+                    "allowedValueTypes": [
+                      ""
+                    ],
+                    "presetValue": ""
+                  },
+                  {
+                    "$type": "FormProperty",
+                    "FormTitle": "MediaType",
+                    "FormEditIdShort": false,
+                    "FormEditDescription": false,
+                    "PresetIdShort": "MediaType",
+                    "KeySemanticId": {
+                      "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                      "type": "ConceptDescription",
+                      "local": true,
+                      "value": "https://example.com/ids/cd/4572_0190_3022_0456",
+                      "index": 0,
+                      "idType": "IRI"
+                    },
+                    "Multiplicity": "One",
+                    "IsReadOnly": false,
+                    "allowedValueTypes": [
+                      ""
+                    ],
+                    "presetValue": ""
+                  },
+                  {
+                    "$type": "FormProperty",
+                    "FormTitle": "ExampleValue",
+                    "FormEditIdShort": false,
+                    "FormEditDescription": false,
+                    "PresetIdShort": "ExampleValue",
+                    "KeySemanticId": {
+                      "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                      "type": "ConceptDescription",
+                      "local": true,
+                      "value": "https://example.com/ids/cd/6192_0190_3022_6082",
+                      "index": 0,
+                      "idType": "IRI"
+                    },
+                    "Multiplicity": "One",
+                    "IsReadOnly": false,
+                    "allowedValueTypes": [
+                      ""
+                    ],
+                    "presetValue": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "ConceptDescriptions": [
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/0241_0190_3022_9102"
+          },
+          "idShort": "cdURL",
+          "category": "CONSTANT",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+EmbeddedDataSpecification, AasxCsharpLibrary",
+              "dataSpecification": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationRef, AasxCsharpLibrary",
+                "keys": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                    "type": "GlobalReference",
+                    "local": false,
+                    "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "dataSpecificationContent": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationIEC61360, AasxCsharpLibrary",
+                "preferredName": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "URL"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "URL"
+                  }
+                ],
+                "shortName": [],
+                "unit": "",
+                "dataType": "URL",
+                "definition": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "URL"
+                  }
+                ]
+              }
+            }
+          ],
+          "descriptions": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "en",
+              "text": "The service endpoint. Make sure it is reachable within the network."
+            }
+          ]
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/7052_0190_3022_2921"
+          },
+          "idShort": "cdName",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+EmbeddedDataSpecification, AasxCsharpLibrary",
+              "dataSpecification": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationRef, AasxCsharpLibrary",
+                "keys": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                    "type": "GlobalReference",
+                    "local": false,
+                    "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "dataSpecificationContent": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationIEC61360, AasxCsharpLibrary",
+                "preferredName": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "Name"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "Nombre"
+                  }
+                ],
+                "shortName": [],
+                "unit": "",
+                "dataType": "",
+                "definition": []
+              }
+            }
+          ],
+          "descriptions": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "en",
+              "text": "The name of the service"
+            },
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "es",
+              "text": "El nombre del servicio"
+            }
+          ]
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/1561_0190_3022_7753"
+          },
+          "idShort": "cdMethod",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+EmbeddedDataSpecification, AasxCsharpLibrary",
+              "dataSpecification": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationRef, AasxCsharpLibrary",
+                "keys": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                    "type": "GlobalReference",
+                    "local": false,
+                    "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "dataSpecificationContent": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationIEC61360, AasxCsharpLibrary",
+                "preferredName": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "Method"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "Tipo Método"
+                  }
+                ],
+                "shortName": [],
+                "unit": "",
+                "dataType": "STRING",
+                "definition": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "Method"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "Tipo Método"
+                  }
+                ]
+              }
+            }
+          ],
+          "descriptions": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "en",
+              "text": "The type of method (GET, POST, PUT...)"
+            },
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "es",
+              "text": "The type of method (GET, POST, PUT...)"
+            }
+          ]
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/2262_0190_3022_6903"
+          },
+          "idShort": "cdResponse",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [],
+          "descriptions": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "en",
+              "text": "Service response"
+            },
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "es",
+              "text": "Respuesta del servicio"
+            }
+          ]
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/9562_0190_3022_6374"
+          },
+          "idShort": "cdResponseCode",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [],
+          "descriptions": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "en",
+              "text": "Responde code (200, 201, etc)"
+            },
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "es",
+              "text": "Código de respuesta (200, 201, etc)"
+            }
+          ]
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/4572_0190_3022_0456"
+          },
+          "idShort": "cdResponseMediaType",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [],
+          "descriptions": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "en",
+              "text": "Media type (e.g. application/json)"
+            },
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "es",
+              "text": "Media type (e.g. application/json)"
+            }
+          ]
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/6192_0190_3022_6082"
+          },
+          "idShort": "cdResponseExampleValue",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+EmbeddedDataSpecification, AasxCsharpLibrary",
+              "dataSpecification": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationRef, AasxCsharpLibrary",
+                "keys": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                    "type": "GlobalReference",
+                    "local": false,
+                    "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "dataSpecificationContent": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationIEC61360, AasxCsharpLibrary",
+                "preferredName": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "ExampleValue"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "Valor Ejemplo"
+                  }
+                ],
+                "shortName": [],
+                "unit": "",
+                "dataType": "",
+                "definition": []
+              }
+            }
+          ],
+          "descriptions": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "en",
+              "text": "An example of response body"
+            },
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "es",
+              "text": "Un ejemplo del cuerpo de la respuesta"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
