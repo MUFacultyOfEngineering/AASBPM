@@ -13,6 +13,14 @@
         "FormEditDescription": false,
         "PresetIdShort": "WebServices",
         "PresetCategory": "CONSTANT",
+        "KeySemanticId": {
+          "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+          "type": "Submodel",
+          "local": true,
+          "value": "https://mondragon.com/ids/sm/7471_5180_3022_3423",
+          "index": 0,
+          "idType": "IRI"
+        },
         "SubmodelElements": [
           {
             "$type": "FormSubmodelElementCollection",
@@ -21,6 +29,14 @@
             "FormEditDescription": false,
             "PresetIdShort": "WebService{0:00}",
             "PresetCategory": "PARAMETER",
+            "KeySemanticId": {
+              "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+              "type": "ConceptDescription",
+              "local": true,
+              "value": "https://mondragon.com/ids/cd/0422_5130_5022_9484",
+              "index": 0,
+              "idType": "IRI"
+            },
             "Multiplicity": "OneToMany",
             "IsReadOnly": false,
             "value": [
@@ -35,14 +51,14 @@
                   "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
                   "type": "ConceptDescription",
                   "local": true,
-                  "value": "https://example.com/ids/cd/0241_0190_3022_9102",
+                  "value": "https://mondragon.com/ids/cd/0241_0190_3022_9102",
                   "index": 0,
                   "idType": "IRI"
                 },
                 "Multiplicity": "One",
                 "IsReadOnly": false,
                 "allowedValueTypes": [
-                  ""
+                  "string"
                 ],
                 "presetValue": ""
               },
@@ -56,14 +72,14 @@
                   "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
                   "type": "ConceptDescription",
                   "local": true,
-                  "value": "https://example.com/ids/cd/7052_0190_3022_2921",
+                  "value": "https://mondragon.com/ids/cd/7052_0190_3022_2921",
                   "index": 0,
                   "idType": "IRI"
                 },
                 "Multiplicity": "One",
                 "IsReadOnly": false,
                 "allowedValueTypes": [
-                  ""
+                  "string"
                 ],
                 "presetValue": ""
               },
@@ -77,14 +93,36 @@
                   "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
                   "type": "ConceptDescription",
                   "local": true,
-                  "value": "https://example.com/ids/cd/1561_0190_3022_7753",
+                  "value": "https://mondragon.com/ids/cd/1561_0190_3022_7753",
                   "index": 0,
                   "idType": "IRI"
                 },
                 "Multiplicity": "One",
                 "IsReadOnly": false,
                 "allowedValueTypes": [
-                  ""
+                  "string"
+                ],
+                "presetValue": ""
+              },
+              {
+                "$type": "FormProperty",
+                "FormTitle": "IsAsync",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "IsAsync",
+                "PresetCategory": "",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://mondragon.com/ids/cd/2582_3130_5022_8052",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  "boolean"
                 ],
                 "presetValue": ""
               },
@@ -98,7 +136,7 @@
                   "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
                   "type": "ConceptDescription",
                   "local": true,
-                  "value": "https://example.com/ids/cd/2262_0190_3022_6903",
+                  "value": "https://mondragon.com/ids/cd/2262_0190_3022_6903",
                   "index": 0,
                   "idType": "IRI"
                 },
@@ -115,14 +153,14 @@
                       "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
                       "type": "ConceptDescription",
                       "local": true,
-                      "value": "https://example.com/ids/cd/9562_0190_3022_6374",
+                      "value": "https://mondragon.com/ids/cd/9562_0190_3022_6374",
                       "index": 0,
                       "idType": "IRI"
                     },
                     "Multiplicity": "One",
                     "IsReadOnly": false,
                     "allowedValueTypes": [
-                      ""
+                      "int"
                     ],
                     "presetValue": ""
                   },
@@ -136,14 +174,14 @@
                       "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
                       "type": "ConceptDescription",
                       "local": true,
-                      "value": "https://example.com/ids/cd/4572_0190_3022_0456",
+                      "value": "https://mondragon.com/ids/cd/4572_0190_3022_0456",
                       "index": 0,
                       "idType": "IRI"
                     },
                     "Multiplicity": "One",
                     "IsReadOnly": false,
                     "allowedValueTypes": [
-                      ""
+                      "string"
                     ],
                     "presetValue": ""
                   },
@@ -157,14 +195,14 @@
                       "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
                       "type": "ConceptDescription",
                       "local": true,
-                      "value": "https://example.com/ids/cd/6192_0190_3022_6082",
+                      "value": "https://mondragon.com/ids/cd/6192_0190_3022_6082",
                       "index": 0,
                       "idType": "IRI"
                     },
                     "Multiplicity": "One",
                     "IsReadOnly": false,
                     "allowedValueTypes": [
-                      ""
+                      "string"
                     ],
                     "presetValue": ""
                   }
@@ -180,7 +218,80 @@
           "identification": {
             "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
             "idType": "IRI",
-            "id": "https://example.com/ids/cd/0241_0190_3022_9102"
+            "id": "https://mondragon.com/ids/cd/0422_5130_5022_9484"
+          },
+          "idShort": "cdWebService",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+EmbeddedDataSpecification, AasxCsharpLibrary",
+              "dataSpecification": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationRef, AasxCsharpLibrary",
+                "keys": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                    "type": "GlobalReference",
+                    "local": false,
+                    "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "dataSpecificationContent": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationIEC61360, AasxCsharpLibrary",
+                "preferredName": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "Web Service"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "Servicio Web"
+                  }
+                ],
+                "shortName": [],
+                "unit": "",
+                "dataType": "STRING",
+                "definition": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "Web Service"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "Servicio Web"
+                  }
+                ]
+              }
+            }
+          ],
+          "descriptions": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "en",
+              "text": "Information about an individual Web Service"
+            },
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "es",
+              "text": "Información respecto a un Servicio Web"
+            }
+          ]
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://mondragon.com/ids/cd/0241_0190_3022_9102"
           },
           "idShort": "cdURL",
           "category": "CONSTANT",
@@ -236,6 +347,11 @@
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "en",
               "text": "The service endpoint. Make sure it is reachable within the network."
+            },
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "es",
+              "text": "El endpoint del servicio. Asegúrese de que sea accesible dentro de la red."
             }
           ]
         },
@@ -244,7 +360,7 @@
           "identification": {
             "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
             "idType": "IRI",
-            "id": "https://example.com/ids/cd/7052_0190_3022_2921"
+            "id": "https://mondragon.com/ids/cd/7052_0190_3022_2921"
           },
           "idShort": "cdName",
           "modelType": {
@@ -283,7 +399,7 @@
                 ],
                 "shortName": [],
                 "unit": "",
-                "dataType": "",
+                "dataType": "STRING",
                 "definition": []
               }
             }
@@ -306,7 +422,7 @@
           "identification": {
             "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
             "idType": "IRI",
-            "id": "https://example.com/ids/cd/1561_0190_3022_7753"
+            "id": "https://mondragon.com/ids/cd/1561_0190_3022_7753"
           },
           "idShort": "cdMethod",
           "modelType": {
@@ -365,12 +481,12 @@
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "en",
-              "text": "The type of method (GET, POST, PUT...)"
+              "text": "The type of method"
             },
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "es",
-              "text": "The type of method (GET, POST, PUT...)"
+              "text": "Tipo o verbo de la operación"
             }
           ]
         },
@@ -379,7 +495,81 @@
           "identification": {
             "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
             "idType": "IRI",
-            "id": "https://example.com/ids/cd/2262_0190_3022_6903"
+            "id": "https://mondragon.com/ids/cd/2582_3130_5022_8052"
+          },
+          "idShort": "cdIsAsync",
+          "category": "",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+EmbeddedDataSpecification, AasxCsharpLibrary",
+              "dataSpecification": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationRef, AasxCsharpLibrary",
+                "keys": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                    "type": "GlobalReference",
+                    "local": false,
+                    "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "dataSpecificationContent": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationIEC61360, AasxCsharpLibrary",
+                "preferredName": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "IsAsync"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "Es Asíncrono"
+                  }
+                ],
+                "shortName": [],
+                "unit": "",
+                "dataType": "BOOLEAN",
+                "definition": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "IsAsync"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "Es Asíncrono"
+                  }
+                ]
+              }
+            }
+          ],
+          "descriptions": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "en",
+              "text": "Specify whether or not the operation is executed asynchronously"
+            },
+            {
+              "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+              "language": "es",
+              "text": "Especificar si la operación se ejecuta de forma asíncrona"
+            }
+          ]
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://mondragon.com/ids/cd/2262_0190_3022_6903"
           },
           "idShort": "cdResponse",
           "modelType": {
@@ -405,7 +595,7 @@
           "identification": {
             "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
             "idType": "IRI",
-            "id": "https://example.com/ids/cd/9562_0190_3022_6374"
+            "id": "https://mondragon.com/ids/cd/9562_0190_3022_6374"
           },
           "idShort": "cdResponseCode",
           "modelType": {
@@ -417,12 +607,12 @@
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "en",
-              "text": "Responde code (200, 201, etc)"
+              "text": "Responde code"
             },
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "es",
-              "text": "Código de respuesta (200, 201, etc)"
+              "text": "Código de respuesta"
             }
           ]
         },
@@ -431,7 +621,7 @@
           "identification": {
             "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
             "idType": "IRI",
-            "id": "https://example.com/ids/cd/4572_0190_3022_0456"
+            "id": "https://mondragon.com/ids/cd/4572_0190_3022_0456"
           },
           "idShort": "cdResponseMediaType",
           "modelType": {
@@ -443,12 +633,12 @@
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "en",
-              "text": "Media type (e.g. application/json)"
+              "text": "Media type"
             },
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "es",
-              "text": "Media type (e.g. application/json)"
+              "text": "Tipo de medio"
             }
           ]
         },
@@ -457,7 +647,7 @@
           "identification": {
             "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
             "idType": "IRI",
-            "id": "https://example.com/ids/cd/6192_0190_3022_6082"
+            "id": "https://mondragon.com/ids/cd/6192_0190_3022_6082"
           },
           "idShort": "cdResponseExampleValue",
           "modelType": {
@@ -496,7 +686,7 @@
                 ],
                 "shortName": [],
                 "unit": "",
-                "dataType": "",
+                "dataType": "STRING",
                 "definition": []
               }
             }
@@ -510,7 +700,7 @@
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "es",
-              "text": "Un ejemplo del cuerpo de la respuesta"
+              "text": "Ejemplo del cuerpo de respuesta"
             }
           ]
         }
