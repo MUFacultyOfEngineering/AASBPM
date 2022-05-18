@@ -23,12 +23,12 @@ __webpack_require__.r(__webpack_exports__);
 const OFFSET = {
   right: 0
 };
-const pathToWSSubmElemsAdminShellIO = '/aas/{aasId}/submodels/WebServices/complete';
-const pathToWSSubmElemsBasyx = '/shells/{aasId}/aas/submodels/WebServices/submodel/submodelElements';
+const pathToWSSubmElemsAdminShellIO = '/aas/{aasId}/submodels/RestServices/complete';
+const pathToWSSubmElemsBasyx = '/shells/{aasId}/aas/submodels/RestServices/submodel/submodelElements';
 const pathToAasListAdminShellIO = '/server/listaas';
 const pathToAasListBasyx = '/shells'; //#region get data from AAS Server
 
-function discoverAasWebServices(hostName, port, pathToAasList, pathToWSSubmElems) {
+function discoverAasRestServices(hostName, port, pathToAasList, pathToWSSubmElems) {
   if (hostName.endsWith("/")) hostName = hostName.slice(0, -1);
   if (pathToAasList.startsWith("/")) pathToAasList = pathToAasList.substring(1, pathToAasList.length);
   var aasUrl = hostName + ":" + port + '/' + pathToAasList;
@@ -77,7 +77,7 @@ function ConfigOverlay({
   const [autoDiscovererInterval, setAutoDiscovererInterval] = (0,camunda_modeler_plugin_helpers_react__WEBPACK_IMPORTED_MODULE_0__.useState)(initValues.autoDiscovererInterval);
 
   const onSubmit = () => {
-    //discoverAasWebServices(hostName, port, pathToAasList, pathToWSSubmElems);
+    //discoverAasRestServices(hostName, port, pathToAasList, pathToWSSubmElems);
     onClose({
       enabled,
       hostName,
@@ -183,7 +183,7 @@ function ConfigOverlay({
     className: "form-group"
   }, /*#__PURE__*/camunda_modeler_plugin_helpers_react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "pathToWSSubmElems"
-  }, "Path to WebService Submodel Elements:"), /*#__PURE__*/camunda_modeler_plugin_helpers_react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  }, "Path to RestServices Submodel Elements:"), /*#__PURE__*/camunda_modeler_plugin_helpers_react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "text",
     className: "form-control",
     name: "pathToWSSubmElems",
@@ -379,12 +379,12 @@ CustomPaletteProvider.prototype.getPaletteEntries = function (element) {
       elementFactory = this._elementFactory,
       bpmnFactory = this._bpmnFactory;
 
-  function createAasWebServiceTask(name, id, url, method, content, payload, response) {
+  function createAasWebServiceTask(name, id, url, method, content, isAsync, payload, response) {
     url = url ?? 'http://localhost:8085/sample';
     method = method ?? 'GET';
     content = content ?? 'application/json';
-    payload = payload ?? '';
-    response = response ?? '${response}';
+    payload = !payload ? '' : '$' + payload;
+    response = !response ? '${response}' : '$' + response;
     return function (event) {
       const serviceTask = elementFactory.createShape({
         type: "bpmn:ServiceTask"
@@ -428,6 +428,8 @@ CustomPaletteProvider.prototype.getPaletteEntries = function (element) {
       serviceTask.businessObject.set("extensionElements", extensionElements);
       serviceTask.businessObject.name = name;
       serviceTask.businessObject.id = id;
+      serviceTask.businessObject.asyncBefore = isAsync;
+      serviceTask.businessObject.asyncAfter = isAsync;
       create.start(event, serviceTask);
     };
   }
@@ -442,16 +444,20 @@ CustomPaletteProvider.prototype.getPaletteEntries = function (element) {
 
   function addServiceTaskFromAAS(aasIdentifier, element) {
     let serviceId = aasIdentifier + '.' + element.idShort;
-    let serviceName = aasIdentifier + ' ' + element.idShort;
+    let serviceName = aasIdentifier + ' ' + element.value.find(x => x.idShort == 'Name').value;
     let url = element.value.find(x => x.idShort == 'URL').value;
     let method = element.value.find(x => x.idShort == 'Method').value;
+    let isAsync = element.value.find(x => x.idShort == 'IsAsync').value;
+    let payload = element.value.find(x => x.idShort == 'RequestBody').value;
+    let requestContentType = 'application/json';
+    let response = '';
     CUSTOM_PALETTE.Actions[serviceId] = {
       group: 'AASWebServicesGroup',
       className: 'bpmn-icon-service-task',
-      title: lblAasWebServ + serviceId,
+      title: lblAasWebServ + serviceName,
       action: {
-        dragstart: createAasWebServiceTask(serviceName, serviceId, url, method),
-        click: createAasWebServiceTask(serviceName, serviceId, url, method)
+        dragstart: createAasWebServiceTask(serviceName, serviceId, url, method, requestContentType, isAsync, payload, response),
+        click: createAasWebServiceTask(serviceName, serviceId, url, method, requestContentType, isAsync, payload, response)
       }
     };
   }

@@ -42,12 +42,12 @@ CustomPaletteProvider.prototype.getPaletteEntries = function(element) {
       elementFactory = this._elementFactory,
       bpmnFactory = this._bpmnFactory;
 
-  function createAasWebServiceTask(name, id, url, method, content, payload, response) {
+  function createAasWebServiceTask(name, id, url, method, content, isAsync, payload, response) {
     url = url ?? 'http://localhost:8085/sample';
     method = method ?? 'GET';
     content = content ?? 'application/json';
-    payload = payload ?? '';
-    response = response ?? '${response}';
+    payload = !payload ? '' : '$' + payload;
+    response = !response ? '${response}' : '$' + response;
 
     return function (event) {
       const serviceTask = elementFactory.createShape({
@@ -95,6 +95,8 @@ CustomPaletteProvider.prototype.getPaletteEntries = function(element) {
       serviceTask.businessObject.set("extensionElements", extensionElements);
       serviceTask.businessObject.name = name;
       serviceTask.businessObject.id = id;
+      serviceTask.businessObject.asyncBefore = isAsync;
+      serviceTask.businessObject.asyncAfter = isAsync;
       create.start(event, serviceTask);
     };
   }
@@ -109,17 +111,21 @@ CustomPaletteProvider.prototype.getPaletteEntries = function(element) {
   //#region get data from AAS Server
 function addServiceTaskFromAAS(aasIdentifier, element){
   let serviceId = aasIdentifier + '.' + element.idShort;
-  let serviceName = aasIdentifier + ' ' + element.idShort;
+  let serviceName = aasIdentifier + ' ' + element.value.find(x=> x.idShort == 'Name').value;
   let url = element.value.find(x=> x.idShort == 'URL').value;
   let method = element.value.find(x=> x.idShort == 'Method').value;
+  let isAsync = element.value.find(x=> x.idShort == 'IsAsync').value;
+  let payload = element.value.find(x=> x.idShort == 'RequestBody').value;
+  let requestContentType = 'application/json';
+  let response = '';
 
   CUSTOM_PALETTE.Actions[serviceId] = {
     group: 'AASWebServicesGroup',
     className: 'bpmn-icon-service-task',
-    title: lblAasWebServ + serviceId,
+    title: lblAasWebServ + serviceName,
     action: {
-      dragstart: createAasWebServiceTask(serviceName, serviceId, url, method),
-      click: createAasWebServiceTask(serviceName, serviceId, url, method)
+      dragstart: createAasWebServiceTask(serviceName, serviceId, url, method, requestContentType, isAsync, payload, response),
+      click: createAasWebServiceTask(serviceName, serviceId, url, method, requestContentType, isAsync, payload, response)
     }
   }
 }

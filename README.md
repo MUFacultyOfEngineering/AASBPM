@@ -4,7 +4,7 @@
 
 This solution enables camunda modeler to discover web services from a desired Asset Administration Shell (AAS) repository. It iterates the AASs found in the repository and gets all submodelElements which submodel idShort is "WebServices". Each submodelElement represents an individual webservice of the asset. This solution aims to help business analysts on the design manufacturing business processes by providing a Service-Discovery mechanism from the AAS repository.
 
-![](Modeler_AasServiceDiscovererSettings.jpg)
+![](aasWebServiceDiscovererPlugin.drawio.png)
 
 ## Important resources
 The "WebServices" Submodel template can be found at \aasResources\submodelTemplate

@@ -5,13 +5,13 @@ import { format } from 'react-string-format';
 
 const OFFSET = { right: 0 };
 
-const pathToWSSubmElemsAdminShellIO = '/aas/{aasId}/submodels/WebServices/complete';
-const pathToWSSubmElemsBasyx = '/shells/{aasId}/aas/submodels/WebServices/submodel/submodelElements';
+const pathToWSSubmElemsAdminShellIO = '/aas/{aasId}/submodels/RestServices/complete';
+const pathToWSSubmElemsBasyx = '/shells/{aasId}/aas/submodels/RestServices/submodel/submodelElements';
 const pathToAasListAdminShellIO = '/server/listaas';
 const pathToAasListBasyx = '/shells';
 
 //#region get data from AAS Server
-function discoverAasWebServices(hostName, port, pathToAasList, pathToWSSubmElems){
+function discoverAasRestServices(hostName, port, pathToAasList, pathToWSSubmElems){
   if (hostName.endsWith("/")) hostName = hostName.slice(0, -1);
   if (pathToAasList.startsWith("/")) pathToAasList = pathToAasList.substring(1, pathToAasList.length);
   var aasUrl = hostName + ":" + port + '/' + pathToAasList;
@@ -65,7 +65,7 @@ export default function ConfigOverlay({ anchor, initValues, onClose }) {
   const [ autoDiscovererInterval, setAutoDiscovererInterval ] = useState(initValues.autoDiscovererInterval);
 
   const onSubmit = () => {
-    //discoverAasWebServices(hostName, port, pathToAasList, pathToWSSubmElems);
+    //discoverAasRestServices(hostName, port, pathToAasList, pathToWSSubmElems);
     onClose({ enabled, hostName, port, aasImplementation, pathToAasList, pathToWSSubmElems, autoDiscovererInterval });
   }
 
@@ -121,7 +121,7 @@ export default function ConfigOverlay({ anchor, initValues, onClose }) {
               <input type="text" className="form-control" name="pathToAasList" value={ pathToAasList } onChange={ (event) => setPathToAasList(event.target.value) } />
             </div>
             <div className="form-group">
-              <label htmlFor="pathToWSSubmElems">Path to WebService Submodel Elements:</label>
+              <label htmlFor="pathToWSSubmElems">Path to RestServices Submodel Elements:</label>
               <input type="text" className="form-control" name="pathToWSSubmElems" value={ pathToWSSubmElems } onChange={ (event) => setPathToWSSubmElems(event.target.value) } />
             </div>
             <div className="form-group">

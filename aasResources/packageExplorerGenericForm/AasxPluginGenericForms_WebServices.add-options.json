@@ -4,14 +4,14 @@
     {
       "$type": "Record",
       "FormTag": "TBD",
-      "FormTitle": "TBD/WebServices",
+      "FormTitle": "TBD/RestServices",
       "FormSubmodel": {
         "$type": "FormSubmodel",
         "FormTitle": "Submodel",
         "FormInfo": "",
         "FormEditIdShort": false,
         "FormEditDescription": false,
-        "PresetIdShort": "WebServices",
+        "PresetIdShort": "RestServices",
         "PresetCategory": "CONSTANT",
         "KeySemanticId": {
           "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
@@ -24,10 +24,10 @@
         "SubmodelElements": [
           {
             "$type": "FormSubmodelElementCollection",
-            "FormTitle": "WebService",
+            "FormTitle": "RestService",
             "FormEditIdShort": false,
             "FormEditDescription": false,
-            "PresetIdShort": "WebService{0:00}",
+            "PresetIdShort": "RestService{0:00}",
             "PresetCategory": "PARAMETER",
             "KeySemanticId": {
               "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
@@ -127,6 +127,27 @@
                 "presetValue": ""
               },
               {
+                "$type": "FormProperty",
+                "FormTitle": "RequestBody",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "RequestBody",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://mondragon/ids/cd/6321_8081_5022_2401",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  "string"
+                ],
+                "presetValue": ""
+              },
+              {
                 "$type": "FormSubmodelElementCollection",
                 "FormTitle": "Response",
                 "FormEditIdShort": false,
@@ -220,7 +241,7 @@
             "idType": "IRI",
             "id": "https://mondragon.com/ids/cd/0422_5130_5022_9484"
           },
-          "idShort": "cdWebService",
+          "idShort": "cdRestService",
           "modelType": {
             "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
             "name": "ConceptDescription"
@@ -247,12 +268,12 @@
                   {
                     "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
                     "language": "en",
-                    "text": "Web Service"
+                    "text": "Rest Service"
                   },
                   {
                     "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
                     "language": "es",
-                    "text": "Servicio Web"
+                    "text": "Servicio Rest"
                   }
                 ],
                 "shortName": [],
@@ -262,12 +283,12 @@
                   {
                     "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
                     "language": "en",
-                    "text": "Web Service"
+                    "text": "Rest Service"
                   },
                   {
                     "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
                     "language": "es",
-                    "text": "Servicio Web"
+                    "text": "Servicio Rest"
                   }
                 ]
               }
@@ -277,12 +298,12 @@
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "en",
-              "text": "Information about an individual Web Service"
+              "text": "Information about an individual Rest Service"
             },
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "es",
-              "text": "Información respecto a un Servicio Web"
+              "text": "Información respecto a un Servicio Rest"
             }
           ]
         },
@@ -346,12 +367,12 @@
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "en",
-              "text": "The service endpoint. Make sure it is reachable within the network."
+              "text": "The rest service endpoint. Make sure it is reachable within the network."
             },
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "es",
-              "text": "El endpoint del servicio. Asegúrese de que sea accesible dentro de la red."
+              "text": "El endpoint del servicio rest. Asegúrese de que sea accesible dentro de la red."
             }
           ]
         },
@@ -408,12 +429,12 @@
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "en",
-              "text": "The name of the service"
+              "text": "The name of the rest service"
             },
             {
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "es",
-              "text": "El nombre del servicio"
+              "text": "El nombre del servicio rest"
             }
           ]
         },
@@ -561,6 +582,56 @@
               "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
               "language": "es",
               "text": "Especificar si la operación se ejecuta de forma asíncrona"
+            }
+          ]
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://mondragon/ids/cd/6321_8081_5022_2401"
+          },
+          "idShort": "cdRequestBody",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": [
+            {
+              "$type": "AdminShellNS.AdminShellV20+EmbeddedDataSpecification, AasxCsharpLibrary",
+              "dataSpecification": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationRef, AasxCsharpLibrary",
+                "keys": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                    "type": "GlobalReference",
+                    "local": false,
+                    "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "dataSpecificationContent": {
+                "$type": "AdminShellNS.AdminShellV20+DataSpecificationIEC61360, AasxCsharpLibrary",
+                "preferredName": [
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "en",
+                    "text": "RequestBody"
+                  },
+                  {
+                    "$type": "AdminShellNS.AdminShellV20+LangStr, AasxCsharpLibrary",
+                    "language": "es",
+                    "text": "Cuerpo de la solicitud"
+                  }
+                ],
+                "shortName": [],
+                "unit": "",
+                "dataType": "STRING",
+                "definition": []
+              }
             }
           ]
         },
