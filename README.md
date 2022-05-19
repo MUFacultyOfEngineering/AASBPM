@@ -54,4 +54,4 @@ Given you've setup and linked your plugin [as explained above](#development-setu
 
 ## Licence
 
-MIT
+Apache-2.0 license
