@@ -2,27 +2,25 @@
 
  [![Compatible with Camunda Modeler version 5](https://img.shields.io/badge/Modeler_Version-5.0.0+-blue.svg)](#) [![Plugin Type](https://img.shields.io/badge/Plugin%20Type-BPMN-orange.svg)](#)
 
-This solution enables camunda modeler to discover web services from a desired Asset Administration Shell (AAS) repository. It iterates the AASs found in the repository and gets all submodelElements which submodel idShort is "WebServices". Each submodelElement represents an individual webservice of the asset. This solution aims to help business analysts on the design manufacturing business processes by providing a Service-Discovery mechanism from the AAS repository.
+This solution enables camunda modeler to discover web services from a desired Asset Administration Shell (AAS) repository. It iterates the AASs found in the repository and gets all submodelElements which submodel idShort is "RestServices". Each submodelElement represents an individual webservice of the asset. This solution aims to help business analysts on the design manufacturing business processes by providing a Service-Discovery mechanism from the AAS repository.
 
 ## Full architecture of our proposal
-![](AAS%20service%20composition%20tool%20architecture_v3.drawio.png)
+![](PhD_ResearchProject_Architecture_V3.drawio.png)
 
 ## Screenshot of Camunda Modeler and the AAS Service Discoverer plugin
 ![](aasWebServiceDiscovererPlugin.drawio.png)
 
 ## Important resources
-The "WebServices" Submodel template can be found at \aasResources\submodelTemplate
+The "RestServices" Submodel template can be found at \aasResources\submodelTemplate
 
 The generic form for the package explorer is at \aasResources\packageExplorerGenericForm
 
-And some example aasxs that implements the WebServices submodel are at \aasResources\aasxs
+And some example aasxs that implements the RestServices submodel are at \aasResources\aasxs
 
 ![](SubmodelTemplate.jpg)
 
 ## Compatibility
-Right now this plugin has been tested with Camunda Modeler version 5 and the AASX Server from admin.shell.io: https://github.com/admin-shell-io/aasx-server
-
-We are currently developing to make it compatible with the Basyx AAS implementation.
+Right now this plugin has been tested with Camunda Modeler version 5, the AAS Servers from 1) [admin.shell.io](https://github.com/admin-shell-io/aasx-server) , and 2) [Basyx](https://wiki.eclipse.org/BaSyx_/_Documentation_/_Components_/_AAS_Server)
 
 ## Development Setup
 

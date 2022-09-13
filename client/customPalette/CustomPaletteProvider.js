@@ -109,9 +109,9 @@ CustomPaletteProvider.prototype.getPaletteEntries = function(element) {
   }
 
   //#region get data from AAS Server
-function addServiceTaskFromAAS(aasIdentifier, element){
-  let serviceId = aasIdentifier + '.' + element.idShort;
-  let serviceName = aasIdentifier + ' ' + element.value.find(x=> x.idShort == 'Name').value;
+function addServiceTaskFromAAS(aasIdShort, element){
+  let serviceId = aasIdShort + '.' + element.idShort;
+  let serviceName = aasIdShort + ' ' + element.value.find(x=> x.idShort == 'Name').value;
   let url = element.value.find(x=> x.idShort == 'URL').value;
   let method = element.value.find(x=> x.idShort == 'Method').value;
   let isAsync = element.value.find(x=> x.idShort == 'IsAsync').value;
@@ -130,7 +130,7 @@ function addServiceTaskFromAAS(aasIdentifier, element){
   }
 }
 
-async function discoverAasWebServices(hostName, port, pathToAasList, pathToWSSubmElems){
+async function discoverAasWebServices(aasImplementation, hostName, port, pathToAasList, pathToWSSubmElems){
   if (hostName.endsWith("/")) hostName = hostName.slice(0, -1);
   if (pathToAasList.startsWith("/")) pathToAasList = pathToAasList.substring(1, pathToAasList.length);
   var aasUrl = hostName + ":" + port + '/' + pathToAasList;
@@ -139,19 +139,51 @@ async function discoverAasWebServices(hostName, port, pathToAasList, pathToWSSub
   .then(response => response.json())
   .then(async (data) => {
     console.log(data);
-    //alert(format('{0} AASs found.', data.aaslist.length));
 
-    if(data.aaslist.length > 0){
-      for (let i = 0; i < data.aaslist.length; i++) {
-        let element = data.aaslist[i];
-        let arElement = element.split(':');
-        let aasIdentifier = arElement[1].trim();
+    let arShells = [];
 
-        //"1 : aasDevice01 : [Custom] AssetAdministrationShell---3472E221 : aasxs\\RaspberryDevice01.aasx",
-        await getSubmodelElementsFromAasId(hostName, port, aasIdentifier, pathToWSSubmElems);
-      }
-      CUSTOM_PALETTE.AASDiscovererStatus = 'FINISHED';
+    switch (aasImplementation) {
+      case "AdminShellIO":
+        //alert(format('{0} AASs found.', data.aaslist.length));
+        arShells = data.aaslist;
+        break;
+      case "Basyx":
+        arShells = data;
+        break;
+      default:
+        break;
     }
+
+    if(!arShells || arShells.length == 0){
+      alert('No shells found in the server');
+      CUSTOM_PALETTE.AASDiscovererStatus = 'FINISHED';
+      return;
+    }
+    //alert(format('{0} shells have been found', arShells.length));
+
+    for (let i = 0; i < arShells.length; i++) {
+      let shellObj = arShells[i];
+      let aasIdentifier = '';
+      let aasIdShort = '';
+
+      switch (aasImplementation) {
+        case "AdminShellIO":
+          //"1 : aasDevice01 : [Custom] AssetAdministrationShell---3472E221 : aasxs\\RaspberryDevice01.aasx",
+          let arShellDescription = shellObj.split(':');
+          aasIdShort = arShellDescription[1].trim();
+          aasIdentifier = arShellDescription[2].trim(); //still have to remove '[Custom] '
+          break;
+        case "Basyx":
+          aasIdShort = shellObj.idShort;
+          aasIdentifier = shellObj.identification.id;
+          break;
+        default:
+          break;
+      }
+      
+      await getSubmodelElementsFromAasId(aasImplementation, hostName, port, aasIdentifier, aasIdShort, pathToWSSubmElems);
+    }
+    CUSTOM_PALETTE.AASDiscovererStatus = 'FINISHED';
   })
   .catch(()=>{
     CUSTOM_PALETTE.AASDiscovererStatus = 'FINISHED'; 
@@ -159,10 +191,21 @@ async function discoverAasWebServices(hostName, port, pathToAasList, pathToWSSub
   });
 }
 
-async function getSubmodelElementsFromAasId(hostName, port, aasIdentifier, pathToWSSubmElems){
+async function getSubmodelElementsFromAasId(aasImplementation, hostName, port, aasIdentifier, aasIdShort, pathToWSSubmElems){
   if (hostName.endsWith("/")) hostName = hostName.slice(0, -1);
   if (pathToWSSubmElems.startsWith("/")) pathToWSSubmElems = pathToWSSubmElems.substring(1, pathToWSSubmElems.length);
-  pathToWSSubmElems = pathToWSSubmElems.replace("{aasId}", aasIdentifier);
+
+  switch (aasImplementation) {
+    case "AdminShellIO":
+      pathToWSSubmElems = pathToWSSubmElems.replace("{aasIdShort}", aasIdShort);
+      break;
+    case "Basyx":
+      pathToWSSubmElems = pathToWSSubmElems.replace("{aasId}", aasIdentifier);
+      break;
+    default:
+        break;
+  }
+
   var aasUrl = hostName + ":" + port + '/' + pathToWSSubmElems;
 
   await fetch(aasUrl)
@@ -173,7 +216,7 @@ async function getSubmodelElementsFromAasId(hostName, port, aasIdentifier, pathT
 
     data.submodelElements.forEach(element => {
       CUSTOM_PALETTE.NServicesFound++;
-      addServiceTaskFromAAS(aasIdentifier, element);
+      addServiceTaskFromAAS(aasIdShort, element);
     });
   })
   .catch(console.log);
@@ -203,7 +246,7 @@ async function getSubmodelElementsFromAasId(hostName, port, aasIdentifier, pathT
   };*/
 
   if (CUSTOM_PALETTE.AASDiscovererStatus == 'READY'){
-    var discoverPromise = discoverAasWebServices(window.PLUGIN_CONFIGS.hostName, window.PLUGIN_CONFIGS.port, window.PLUGIN_CONFIGS.pathToAasList, window.PLUGIN_CONFIGS.pathToWSSubmElems);
+    var discoverPromise = discoverAasWebServices(window.PLUGIN_CONFIGS.aasImplementation, window.PLUGIN_CONFIGS.hostName, window.PLUGIN_CONFIGS.port, window.PLUGIN_CONFIGS.pathToAasList, window.PLUGIN_CONFIGS.pathToWSSubmElems);
     discoverPromise.finally((data) => {
       CUSTOM_PALETTE._update();
     });

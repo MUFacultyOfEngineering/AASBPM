@@ -5,13 +5,13 @@ import { format } from 'react-string-format';
 
 const OFFSET = { right: 0 };
 
-const pathToWSSubmElemsAdminShellIO = '/aas/{aasId}/submodels/RestServices/complete';
-const pathToWSSubmElemsBasyx = '/shells/{aasId}/aas/submodels/RestServices/submodel/submodelElements';
+const pathToWSSubmElemsAdminShellIO = '/aas/{aasIdShort}/submodels/RestServices/complete';
+const pathToWSSubmElemsBasyx = '/aasServer/shells/{aasId}/aas/submodels/RestServices/submodel';
 const pathToAasListAdminShellIO = '/server/listaas';
-const pathToAasListBasyx = '/shells';
+const pathToAasListBasyx = '/aasServer/shells';
 
 //#region get data from AAS Server
-function discoverAasRestServices(hostName, port, pathToAasList, pathToWSSubmElems){
+function discoverAasRestServices(aasImplementation, hostName, port, pathToAasList, pathToWSSubmElems){
   if (hostName.endsWith("/")) hostName = hostName.slice(0, -1);
   if (pathToAasList.startsWith("/")) pathToAasList = pathToAasList.substring(1, pathToAasList.length);
   var aasUrl = hostName + ":" + port + '/' + pathToAasList;
@@ -35,7 +35,7 @@ function discoverAasRestServices(hostName, port, pathToAasList, pathToWSSubmElem
   .catch(console.log)
 }
 
-function getSubmodelElementsFromAasId(hostName, port, aasIdentifier, pathToWSSubmElems){
+function getSubmodelElementsFromAasId(aasImplementation, hostName, port, aasIdentifier, pathToWSSubmElems){
   if (hostName.endsWith("/")) hostName = hostName.slice(0, -1);
   if (pathToWSSubmElems.startsWith("/")) pathToWSSubmElems = pathToWSSubmElems.substring(1, pathToWSSubmElems.length);
   pathToWSSubmElems = pathToWSSubmElems.replace("{aasId}", aasIdentifier);
@@ -65,13 +65,13 @@ export default function ConfigOverlay({ anchor, initValues, onClose }) {
   const [ autoDiscovererInterval, setAutoDiscovererInterval ] = useState(initValues.autoDiscovererInterval);
 
   const onSubmit = () => {
-    //discoverAasRestServices(hostName, port, pathToAasList, pathToWSSubmElems);
+    //discoverAasRestServices(aasImplementation, hostName, port, pathToAasList, pathToWSSubmElems);
     onClose({ enabled, hostName, port, aasImplementation, pathToAasList, pathToWSSubmElems, autoDiscovererInterval });
   }
 
   function onChangeAasImplementation(aasImplementation){
     switch(aasImplementation){
-      case "adminShellIO":
+      case "AdminShellIO":
         setPathToAasList(pathToAasListAdminShellIO);
         setPathToWSSubmElems(pathToWSSubmElemsAdminShellIO);
         break;
@@ -111,7 +111,7 @@ export default function ConfigOverlay({ anchor, initValues, onClose }) {
             <div className="form-group">
               <label htmlFor="aasImplementation">AAS Implementation:</label>
               <select className='form-control' name='aasImplementation' value={ aasImplementation } onChange={ (event) => onChangeAasImplementation(event.target.value) } >
-                <option value={"adminShellIO"} selected>admin-shell-io</option>
+                <option value={"AdminShellIO"} selected>admin-shell-io</option>
                 <option value={"Basyx"}>Basyx</option>
                 <option value={"Other"}>Other</option>
               </select>
