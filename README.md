@@ -2,7 +2,7 @@
 
  [![Compatible with Camunda Modeler version 5](https://img.shields.io/badge/Modeler_Version-5.0.0+-blue.svg)](#) [![Plugin Type](https://img.shields.io/badge/Plugin%20Type-BPMN-orange.svg)](#)
 
-This solution enables camunda modeler to discover web services from a desired Asset Administration Shell (AAS) repository. It iterates the AASs found in the repository and gets all submodelElements which submodel idShort is "RestServices". Each submodelElement represents an individual webservice of the asset. This solution aims to help business analysts on the design manufacturing business processes by providing a Service-Discovery mechanism from the AAS repository.
+This solution enables camunda modeler to discover REST services from a desired Asset Administration Shell (AAS) repository. It iterates the AASs found in the repository and gets all submodelElements which submodel idShort is "RestServices". Each submodelElement represents an individual service of the asset. This solution aims to assist business analysts on the design manufacturing business processes by providing a Service-Discovery mechanism from the AAS repository.
 
 ## Full architecture of our proposal
 ![](PhD_ResearchProject_Architecture_V3.drawio.png)
