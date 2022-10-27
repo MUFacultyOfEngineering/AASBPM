@@ -74,19 +74,28 @@ CustomPaletteProvider.prototype.getPaletteEntries = function(element) {
         value: payload
       }); 
 
-       var responseOutPutParameter = bpmnFactory.create('camunda:OutputParameter', {
-        // type: 'string',
-        name: 'responsename',
-        value: response
+      //create javascript inline script
+      var inlineJsScriptOutParam = bpmnFactory.create('camunda:Script', {
+        scriptFormat: "javascript",
+        name: serviceResponseParamName,
+        value: 'connector.getVariable("response");'
       });  
+      
+      //give a name to output parameter (service response).
+      var serviceResponseParamName = "response" + id.split(".")[1];
+      var responseOutPutParameter = bpmnFactory.create('camunda:OutputParameter', {
+        name: serviceResponseParamName
+      });
+
+      //assign inline script to output parameter
+      responseOutPutParameter['definition'] = inlineJsScriptOutParam;
 
       var inputOutput = bpmnFactory.create('camunda:InputOutput', {
         inputParameters: [urlInputParameter,methodInputParameter,contentTypeInputParameter,
           payloadInputParameter ],   
           outputParameters: [responseOutPutParameter]  
-      });  
-
-      const connector = bpmnFactory.create("camunda:Connector", {
+      });
+      var connector = bpmnFactory.create("camunda:Connector", {
         connectorId: "http-connector", inputOutput
       });
       var extensionElements = bpmnFactory.create('bpmn:ExtensionElements', {
@@ -179,7 +188,10 @@ async function discoverAasWebServices(aasImplementation, hostName, port, pathToA
           break;
         default:
           break;
+
       }
+      //aasIdentifier can be URI. encode it.
+      aasIdentifier = encodeURIComponent(aasIdentifier);
       
       await getSubmodelElementsFromAasId(aasImplementation, hostName, port, aasIdentifier, aasIdShort, pathToWSSubmElems);
     }
