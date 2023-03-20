@@ -1,4 +1,5 @@
 const path = require('path');
+const CamundaModelerWebpackPlugin = require('camunda-modeler-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -30,5 +31,8 @@ module.exports = {
       react: 'camunda-modeler-plugin-helpers/react'
     }
   },
-  devtool: 'cheap-module-source-map'
+  devtool: 'cheap-module-source-map',
+  plugins: [
+    new CamundaModelerWebpackPlugin()
+  ]
 };

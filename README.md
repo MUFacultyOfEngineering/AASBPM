@@ -1,21 +1,27 @@
 # Asset Administration Shell-Based Business Process Modeler (AASBPM)
 
- [![Compatible with Camunda Modeler version 5](https://img.shields.io/badge/Modeler_Version-5.0.0+-blue.svg)](#) [![Plugin Type](https://img.shields.io/badge/Plugin%20Type-BPMN-orange.svg)](#)
+ [![Compatible with Camunda Modeler version 5.9](https://img.shields.io/badge/Modeler_Version-5.9.0+-blue.svg)](#) [![Plugin Type](https://img.shields.io/badge/Plugin%20Type-BPMN-orange.svg)](#)
 
 This solution enables camunda modeler to discover REST services from a desired Asset Administration Shell (AAS) repository. It iterates the AASs found in the repository and gets all submodelElements which submodel idShort is "RestServices". Each submodelElement represents an individual service of the asset. This solution aims to assist business analysts on the design manufacturing business processes by providing a Service-Discovery mechanism from the AAS repository.
 
+Context-aware integration is available through a new section in the properties panel of Camunda Modeler called "Quality of service parameters". This section allows to configure the conditions that the service should meet in order to be executed at runtime. Node-RED Workflow Manager then reads and takes these configurations in order to determine (by communication with the Context Analyzer component) whether the service actually meets the quality conditions, if not, another compatible service is selected that best meets with the quality conditions.
+
+
 ## Full architecture of our proposal
-![](PhD_ResearchProject_Architecture_V3.drawio.png)
+![](PhD_ResearchProject_Architecture_V4.drawio.png)
 
 ## Screenshot of Camunda Modeler and the AAS Service Discoverer plugin
-![](aasWebServiceDiscovererPlugin.drawio.png)
+![](aasServiceDiscovererPlugin.drawio.png)
+
+## Screenshot of Camunda Modeler and the "Quality of service parameters" properties panel section
+![](camundaModelerQosParamsPropsPanelSection.png)
 
 ## Important resources
-The "RestServices" Submodel template can be found at \aasResources\submodelTemplate
+The "RestServices" and "InterfaceConnectionSheet" submodel templates can be found at \aasResources\submodelTemplate
 
-The generic form for the package explorer is at \aasResources\packageExplorerGenericForm
+The generic forms for the package explorer are in \aasResources\packageExplorerGenericForm
 
-And some example aasxs that implements the RestServices submodel are at \aasResources\aasxs
+And some example aasxs that implements the submodels are in \aasResources\aasxs
 
 ![](SubmodelTemplate.jpg)
 

@@ -1,0 +1,350 @@
+{
+  "$type": "Options",
+  "Records": [
+    {
+      "$type": "Record",
+      "FormTag": "TBD",
+      "FormTitle": "TBD/InterfaceConnectionSheet",
+      "FormSubmodel": {
+        "$type": "FormSubmodel",
+        "FormTitle": "Submodel",
+        "FormInfo": "",
+        "FormEditIdShort": false,
+        "FormEditDescription": false,
+        "PresetIdShort": "InterfaceConnectionSheet",
+        "PresetCategory": "CONSTANT",
+        "SubmodelElements": [
+          {
+            "$type": "FormProperty",
+            "FormTitle": "DeviceIP",
+            "FormEditIdShort": false,
+            "FormEditDescription": false,
+            "PresetIdShort": "DeviceIP",
+            "KeySemanticId": {
+              "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+              "type": "ConceptDescription",
+              "local": true,
+              "value": "https://example.com/ids/cd/6200_6122_2032_9216",
+              "index": 0,
+              "idType": "IRI"
+            },
+            "Multiplicity": "One",
+            "IsReadOnly": false,
+            "allowedValueTypes": [
+              "string"
+            ],
+            "presetValue": ""
+          },
+          {
+            "$type": "FormSubmodelElementCollection",
+            "FormTitle": "Nodes",
+            "FormEditIdShort": false,
+            "FormEditDescription": false,
+            "PresetIdShort": "Nodes{0:00}",
+            "KeySemanticId": {
+              "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+              "type": "ConceptDescription",
+              "local": true,
+              "value": "https://example.com/ids/cd/5500_6122_2032_0266",
+              "index": 0,
+              "idType": "IRI"
+            },
+            "Multiplicity": "ZeroToMany",
+            "IsReadOnly": false,
+            "value": [
+              {
+                "$type": "FormProperty",
+                "FormTitle": "CommunicationProtocol",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "CommunicationProtocol",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/5375_2132_2032_5822",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  "string"
+                ],
+                "presetValue": "",
+                "comboBoxChoices": [
+                  "opc.tcp",
+                  "tcp",
+                  "http",
+                  "https",
+                  "ftp",
+                  "sftp"
+                ]
+              },
+              {
+                "$type": "FormProperty",
+                "FormTitle": "CommunicationPort",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "CommunicationPort",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/4585_2132_2032_1119",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  "int"
+                ],
+                "presetValue": ""
+              },
+              {
+                "$type": "FormProperty",
+                "FormTitle": "EndpointNodeId",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "EndpointNodeId",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/3210_6122_2032_2817",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  "string"
+                ],
+                "presetValue": ""
+              },
+              {
+                "$type": "FormProperty",
+                "FormTitle": "NameSpaceIndex",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "NameSpaceIndex",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/0110_6122_2032_2612",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  "int"
+                ],
+                "presetValue": ""
+              },
+              {
+                "$type": "FormProperty",
+                "FormTitle": "ShortName",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "ShortName",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/5310_6122_2032_7778",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  "string"
+                ],
+                "presetValue": ""
+              },
+              {
+                "$type": "FormProperty",
+                "FormTitle": "Description",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "Description",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/5410_6122_2032_0078",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  "string"
+                ],
+                "presetValue": ""
+              },
+              {
+                "$type": "FormProperty",
+                "FormTitle": "DataType",
+                "FormEditIdShort": false,
+                "FormEditDescription": false,
+                "PresetIdShort": "DataType",
+                "KeySemanticId": {
+                  "$type": "AdminShellNS.AdminShellV20+Key, AasxCsharpLibrary",
+                  "type": "ConceptDescription",
+                  "local": true,
+                  "value": "https://example.com/ids/cd/5510_6122_2032_8508",
+                  "index": 0,
+                  "idType": "IRI"
+                },
+                "Multiplicity": "One",
+                "IsReadOnly": false,
+                "allowedValueTypes": [
+                  "string"
+                ],
+                "presetValue": "",
+                "comboBoxChoices": [
+                  "Decimal",
+                  "Integer",
+                  "String",
+                  "Double",
+                  "Bit",
+                  "Bool"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "ConceptDescriptions": [
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/6200_6122_2032_9216"
+          },
+          "idShort": "cdInterfaceConnectionSheetDeviceIP",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": []
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/5500_6122_2032_0266"
+          },
+          "idShort": "cdInterfaceConnectionSheetNodes",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": []
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/5375_2132_2032_5822"
+          },
+          "idShort": "cdInterfaceConnectionSheetCommunicationProtocol",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          }
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/4585_2132_2032_1119"
+          },
+          "idShort": "cdInterfaceConnectionSheetCommunicationPort",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          }
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/3210_6122_2032_2817"
+          },
+          "idShort": "cdInterfaceConnectionSheetEndpointNodeId",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": []
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/0110_6122_2032_2612"
+          },
+          "idShort": "cdInterfaceConnectionSheetNodeNameSpaceIndex",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": []
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/5310_6122_2032_7778"
+          },
+          "idShort": "cdInterfaceConnectionSheetNodeShortName",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": []
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/5410_6122_2032_0078"
+          },
+          "idShort": "cdInterfaceConnectionSheetNodeDescription",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": []
+        },
+        {
+          "$type": "AdminShellNS.AdminShellV20+ConceptDescription, AasxCsharpLibrary",
+          "identification": {
+            "$type": "AdminShellNS.AdminShellV20+Identification, AasxCsharpLibrary",
+            "idType": "IRI",
+            "id": "https://example.com/ids/cd/5510_6122_2032_8508"
+          },
+          "idShort": "cdInterfaceConnectionSheetNodeDataType",
+          "modelType": {
+            "$type": "AdminShellNS.AdminShellV20+JsonModelTypeWrapper, AasxCsharpLibrary",
+            "name": "ConceptDescription"
+          },
+          "embeddedDataSpecifications": []
+        }
+      ]
+    }
+  ]
+}

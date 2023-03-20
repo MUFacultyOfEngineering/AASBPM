@@ -1,0 +1,49 @@
+{
+  "name": "QualityOfService",
+  "prefix": "qos",
+  "uri": "http://mondragon.edu/schema/bpmn/qos",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "Parameters",
+      "superClass": [
+        "Element"
+      ],
+      "properties": [
+        {
+          "name": "values",
+          "isMany": true,
+          "type": "Parameter"
+        }
+      ]
+    },
+    {
+      "name": "Parameter",
+      "properties": [
+        {
+          "name": "name",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "condition",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "operator",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

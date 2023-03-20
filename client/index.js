@@ -7,16 +7,23 @@
  * Plugin documentation - https://docs.camunda.io/docs/components/modeler/desktop-modeler/plugins/
  */
 
-import { registerClientExtension, registerBpmnJSPlugin } from 'camunda-modeler-plugin-helpers';
+import { registerClientExtension, registerBpmnJSPlugin, registerPlatformBpmnJSPlugin, registerPlatformBpmnJSModdleExtension, registerBpmnJSModdleExtension } from 'camunda-modeler-plugin-helpers';
 import aasWebServicePlugin from './aasWebServiceDiscovererExtension';
-import customPalettePlugin from './customPalette/CustomPaletteProvider';
+import customPaletteProviderModule from './customPaletteProviders';
+import qosPropertiesProviderModule from './customPropertiesPanelProviders/providers/qosPropertiesPanelProvider';
+import qosModdleDescriptor from './customPropertiesPanelProviders/descriptors/QosXmlFieldsDescriptor.json';
 
+//register aas modal window
 registerClientExtension(aasWebServicePlugin);
 
-//2nd plugin
-const customPaletteBpmnJSPlugin = {
-  __init__: [ 'customPaletteProvider' ],
-  customPaletteProvider: [ 'type', customPalettePlugin ]
-};
+//register custom palette
+//registerPlatformBpmnJSPlugin(customPaletteProviderModule);
+registerBpmnJSPlugin(customPaletteProviderModule);
 
-registerBpmnJSPlugin(customPaletteBpmnJSPlugin);
+//register qos properties panel
+//registerPlatformBpmnJSPlugin(qosPropertiesProviderModule);
+registerBpmnJSPlugin(qosPropertiesProviderModule);
+
+//register descriptor of the qosModdleDescriptor
+//registerPlatformBpmnJSModdleExtension(qosModdleDescriptor);
+registerBpmnJSModdleExtension(qosModdleDescriptor);
