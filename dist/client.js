@@ -390,7 +390,7 @@ class CustomPaletteProvider {
 CustomPaletteProvider.$inject = ['palette', 'create', 'elementFactory', 'bpmnFactory', 'spaceTool', 'lassoTool', 'handTool', 'globalConnect', 'translate'];
 
 //tooling functions
-function createAasWebServiceTask(modelerPlugs, name, id, url, method, content, isAsync, payload, response, aasIdentifier) {
+function createAasWebServiceTask(modelerPlugs, name, id, url, method, content, isAsync, payload, response, aasIdentifier, aasIdShort) {
   const {
     create,
     bpmnFactory,
@@ -399,7 +399,7 @@ function createAasWebServiceTask(modelerPlugs, name, id, url, method, content, i
   url = url ?? 'http://localhost:8085/sample';
   method = method ?? 'GET';
   content = content ?? 'application/json';
-  payload = !payload ? '' : '$' + payload;
+  payload = !payload ? '' : payload;
   response = !response ? '${response}' : '$' + response;
   return function (event) {
     const serviceTask = elementFactory.createShape({
@@ -450,13 +450,17 @@ function createAasWebServiceTask(modelerPlugs, name, id, url, method, content, i
       inputOutput
     });
 
-    //add aasIdentifier as an extensionElement under camunda:Properties nameSpace
+    //add aasIdentifier and aasIdShort as an extensionElement under camunda:Properties nameSpace
     var eecpAasIdentifier = bpmnFactory.create("camunda:Property", {
       name: 'aasIdentifier',
       value: aasIdentifier
     });
+    var eecpAasIdShort = bpmnFactory.create("camunda:Property", {
+      name: 'aasIdShort',
+      value: aasIdShort
+    });
     var camundaProperties = bpmnFactory.create("camunda:Properties", {
-      values: [eecpAasIdentifier]
+      values: [eecpAasIdentifier, eecpAasIdShort]
     });
 
     //append all extensionElements
@@ -487,8 +491,8 @@ function addServiceTaskFromAAS(modelerPlugs, aasIdShort, aasIdentifier, element)
     className: 'bpmn-icon-service-task',
     title: lblAasWebServ + serviceName,
     action: {
-      dragstart: createAasWebServiceTask(modelerPlugs, serviceName, serviceId, url, method, requestContentType, isAsync, payload, response, aasIdentifier),
-      click: createAasWebServiceTask(modelerPlugs, serviceName, serviceId, url, method, requestContentType, isAsync, payload, response, aasIdentifier)
+      dragstart: createAasWebServiceTask(modelerPlugs, serviceName, serviceId, url, method, requestContentType, isAsync, payload, response, aasIdentifier, aasIdShort),
+      click: createAasWebServiceTask(modelerPlugs, serviceName, serviceId, url, method, requestContentType, isAsync, payload, response, aasIdentifier, aasIdShort)
     }
   };
 }
@@ -749,15 +753,13 @@ var aasIdentifier = '';
     isEdited: _bpmn_io_properties_panel__WEBPACK_IMPORTED_MODULE_0__.isTextFieldEntryEdited,
     idPrefix,
     parameter
-  } /*,
-    {
-     id: idPrefix + '-operator',
-     component: CreateFieldQosConditionalOperator,
-     isEdited: isSelectEntryEdited,
-     idPrefix,
-     parameter
-    }*/];
-
+  }, {
+    id: idPrefix + '-operator',
+    component: CreateFieldQosConditionalOperator,
+    isEdited: _bpmn_io_properties_panel__WEBPACK_IMPORTED_MODULE_0__.isSelectEntryEdited,
+    idPrefix,
+    parameter
+  }];
   return entries;
 }
 
@@ -793,29 +795,28 @@ function CreateFieldQosParameterName(props) {
       if (hostName.endsWith("/")) hostName = hostName.slice(0, -1);
       if (pathToSubmElems.startsWith("/")) pathToSubmElems = pathToSubmElems.substring(1, pathToSubmElems.length);
       var icsSubmodelElementsUrl = hostName + ":" + port + '/' + pathToSubmElems;
+
+      //set default qos params
+      let arSelectBoxOptions = [{
+        value: 'SuccessRate',
+        label: 'SuccessRate'
+      }, {
+        value: 'AvgResponseTime',
+        label: 'AvgResponseTime'
+      }, {
+        value: 'LastResponseTime',
+        label: 'LastResponseTime'
+      }, {
+        value: 'AvgNetworkLatency',
+        label: 'AvgNetworkLatency'
+      }, {
+        value: 'LastNetworkLatency',
+        label: 'LastNetworkLatency'
+      }];
       fetch(icsSubmodelElementsUrl).then(response => response.json()).then(async data => {
         let icsSubmodelElements = data.submodelElements;
-
-        //declare array selectBoxOptions and set default qos params
-        let arSelectBoxOptions = [{
-          value: 'SuccessRate',
-          label: 'SuccessRate'
-        }, {
-          value: 'AvgResponseTime',
-          label: 'AvgResponseTime'
-        }, {
-          value: 'LastResponseTime',
-          label: 'LastResponseTime'
-        }, {
-          value: 'AvgNetworkLatency',
-          label: 'AvgNetworkLatency'
-        }, {
-          value: 'LastNetworkLatency',
-          label: 'LastNetworkLatency'
-        }];
         if (!icsSubmodelElements || icsSubmodelElements.length == 0) {
           console.log(`No QoS parameters found in the shell ${aasIdentifier}`);
-          setParameterNamesFromAas(arSelectBoxOptions);
           return;
         }
         console.log(`${icsSubmodelElements.length} QoS parameters found in the shell ${aasIdentifier}`);
@@ -829,9 +830,10 @@ function CreateFieldQosParameterName(props) {
             label: icsSubmodelElements[i].value.find(x => x.idShort == 'ShortName').value
           });
         }
-        setParameterNamesFromAas(arSelectBoxOptions);
-      }).catch(error => console.error(error));
+      }).catch(error => console.error(error)).finally(setParameterNamesFromAas(arSelectBoxOptions));
     }
+
+    //get qos params from aas
     getParameterNamesFromAas(aasIdentifier);
   }, [setParameterNamesFromAas]);
   const getOptions = () => {
@@ -986,9 +988,11 @@ __webpack_require__.r(__webpack_exports__);
     commandStack = injector.get('commandStack');
   const items = parameters.map((parameter, index) => {
     const id = element.id + '-parameter-' + index;
-    const label = (parameter.get('name') || '') + ' ' + (parameter.get('condition') || '') + ' ' + (parameter.get('value') || ''); // + ' ' +
-    //(parameter.get('operator') || '');
-
+    const name = parameter.get('name') || '';
+    const condition = parameter.get('condition') || '';
+    const value = parameter.get('value') || '';
+    const operator = parameter.get('operator') || '';
+    const label = `${name} ${condition} ${value} ${operator}`;
     return {
       id,
       label: label,

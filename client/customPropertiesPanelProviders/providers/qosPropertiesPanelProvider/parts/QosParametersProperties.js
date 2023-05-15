@@ -25,11 +25,12 @@ export default function ({element, injector}) {
 
   const items = parameters.map((parameter, index) => {
     const id = element.id + '-parameter-' + index;
+    const name = parameter.get('name') || '';
+    const condition = parameter.get('condition') || '';
+    const value = parameter.get('value') || '';
+    const operator = parameter.get('operator') || '';
 
-    const label = (parameter.get('name') || '') + ' ' +
-    (parameter.get('condition') || '') + ' ' +
-    (parameter.get('value') || '');// + ' ' +
-    //(parameter.get('operator') || '');
+    const label = `${name} ${condition} ${value} ${operator}`;
 
     return {
       id,

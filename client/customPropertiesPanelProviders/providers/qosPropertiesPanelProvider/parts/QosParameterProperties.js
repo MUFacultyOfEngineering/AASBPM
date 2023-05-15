@@ -50,14 +50,14 @@ export default function (props) {
       isEdited: isTextFieldEntryEdited,
       idPrefix,
       parameter
-    }/*,
+    },
     {
       id: idPrefix + '-operator',
       component: CreateFieldQosConditionalOperator,
       isEdited: isSelectEntryEdited,
       idPrefix,
       parameter
-    }*/
+    }
   ];
 
   return entries;
@@ -103,27 +103,26 @@ function CreateFieldQosParameterName(props) {
       if (pathToSubmElems.startsWith("/")) pathToSubmElems = pathToSubmElems.substring(1, pathToSubmElems.length);
       var icsSubmodelElementsUrl = hostName + ":" + port + '/' + pathToSubmElems;
 
+      //set default qos params
+      let arSelectBoxOptions = [
+        { value: 'SuccessRate', label: 'SuccessRate' },
+        { value: 'AvgResponseTime', label: 'AvgResponseTime' },
+        { value: 'LastResponseTime', label: 'LastResponseTime' },
+        { value: 'AvgNetworkLatency', label: 'AvgNetworkLatency' },
+        { value: 'LastNetworkLatency', label: 'LastNetworkLatency' }
+      ];
+
       fetch(icsSubmodelElementsUrl)
         .then(response => response.json())
         .then(async (data) => {
           let icsSubmodelElements = data.submodelElements;
 
-          //declare array selectBoxOptions and set default qos params
-          let arSelectBoxOptions = [
-            { value: 'SuccessRate', label: 'SuccessRate' },
-            { value: 'AvgResponseTime', label: 'AvgResponseTime' },
-            { value: 'LastResponseTime', label: 'LastResponseTime' },
-            { value: 'AvgNetworkLatency', label: 'AvgNetworkLatency' },
-            { value: 'LastNetworkLatency', label: 'LastNetworkLatency' }
-          ];
-
           if (!icsSubmodelElements || icsSubmodelElements.length == 0) {
             console.log(`No QoS parameters found in the shell ${aasIdentifier}`);
-            setParameterNamesFromAas(arSelectBoxOptions)
             return;
           }
           console.log(`${icsSubmodelElements.length} QoS parameters found in the shell ${aasIdentifier}`);
-
+          
           for (let i = 0; i < icsSubmodelElements.length; i++) {
             //there's one property that defines deviceIP address, omit this one and go for the next
             if (icsSubmodelElements[i].idShort == "DeviceIP") continue;
@@ -134,12 +133,12 @@ function CreateFieldQosParameterName(props) {
               label: icsSubmodelElements[i].value.find(x=> x.idShort == 'ShortName').value,
             });
           }
-
-          setParameterNamesFromAas(arSelectBoxOptions);
         })
-        .catch(error => console.error(error));
+        .catch(error => console.error(error))
+        .finally(setParameterNamesFromAas(arSelectBoxOptions));
     }
-  
+    
+    //get qos params from aas
     getParameterNamesFromAas(aasIdentifier);
   }, [ setParameterNamesFromAas ]);
 

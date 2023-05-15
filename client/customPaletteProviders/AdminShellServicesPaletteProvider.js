@@ -67,12 +67,12 @@ CustomPaletteProvider.$inject = [
 ];
 
 //tooling functions
-function createAasWebServiceTask(modelerPlugs, name, id, url, method, content, isAsync, payload, response, aasIdentifier) {
+function createAasWebServiceTask(modelerPlugs, name, id, url, method, content, isAsync, payload, response, aasIdentifier, aasIdShort) {
   const {create, bpmnFactory, elementFactory} = modelerPlugs;
   url = url ?? 'http://localhost:8085/sample';
   method = method ?? 'GET';
   content = content ?? 'application/json';
-  payload = !payload ? '' : '$' + payload;
+  payload = !payload ? '' : payload;
   response = !response ? '${response}' : '$' + response;
 
   return function (event) {
@@ -126,14 +126,19 @@ function createAasWebServiceTask(modelerPlugs, name, id, url, method, content, i
       connectorId: "http-connector", inputOutput
     });
 
-    //add aasIdentifier as an extensionElement under camunda:Properties nameSpace
+    //add aasIdentifier and aasIdShort as an extensionElement under camunda:Properties nameSpace
     var eecpAasIdentifier = bpmnFactory.create("camunda:Property", {
       name: 'aasIdentifier', 
       value: aasIdentifier
     });
 
+    var eecpAasIdShort = bpmnFactory.create("camunda:Property", {
+      name: 'aasIdShort', 
+      value: aasIdShort
+    });
+
     var camundaProperties = bpmnFactory.create("camunda:Properties", {
-      values: [eecpAasIdentifier]
+      values: [eecpAasIdentifier, eecpAasIdShort]
     });
 
     //append all extensionElements
@@ -166,8 +171,8 @@ function addServiceTaskFromAAS(modelerPlugs, aasIdShort, aasIdentifier, element)
     className: 'bpmn-icon-service-task',
     title: lblAasWebServ + serviceName,
     action: {
-      dragstart: createAasWebServiceTask(modelerPlugs, serviceName, serviceId, url, method, requestContentType, isAsync, payload, response, aasIdentifier),
-      click: createAasWebServiceTask(modelerPlugs, serviceName, serviceId, url, method, requestContentType, isAsync, payload, response, aasIdentifier)
+      dragstart: createAasWebServiceTask(modelerPlugs, serviceName, serviceId, url, method, requestContentType, isAsync, payload, response, aasIdentifier, aasIdShort),
+      click: createAasWebServiceTask(modelerPlugs, serviceName, serviceId, url, method, requestContentType, isAsync, payload, response, aasIdentifier, aasIdShort)
     }
   }
 }
